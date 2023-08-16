@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import Shared from '@/components/Shared'
 import W3MWagmi from '@/components/W3MWagmi'
 import { Hydrate } from '@/utils/Hydrate'
 import Auth from '@/components/Auth'
