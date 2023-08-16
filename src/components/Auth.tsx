@@ -10,6 +10,7 @@ const modal = new WalletConnectModal({ projectId })
 const Auth = () => {
   const [authClient, setAuthClient] = useState<InstanceType<typeof AuthClient>>()
   const [signed, setSigned] = useState<string>()
+  const [ready, setReady] = useState<boolean>(false)
 
   useEffect(()=>{
     async function initAuth(){
@@ -37,6 +38,7 @@ const Auth = () => {
         modal.closeModal()  
       })
       setAuthClient(_authClient)
+      setReady(true)
     }
 
     initAuth()
@@ -55,10 +57,10 @@ const Auth = () => {
   }
   return (
     <div className='flex-container' >
-      { ["Trust Wallet", "Rainbow"].map( v => <button key={v} onClick={handleAuth} >Sign with {v}</button> ) }
-      {
-        signed
+      { ready ? ["Trust Wallet", "Rainbow"].map( v => <button key={v} onClick={handleAuth} >Sign with {v}</button> ) :
+        <span>Initializing...</span>
       }
+      {signed}
     </div>
   )
 }
