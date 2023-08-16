@@ -14,10 +14,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Auth/>
-        <Hydrate>
-          <W3MWagmi/>
-        </Hydrate>
+        {/* With Auth */}
+        {/* <Auth/> */}
+
+      {/* With Web3Modal */}
+      <W3MWagmi/>
       </main>
     </>
   )
